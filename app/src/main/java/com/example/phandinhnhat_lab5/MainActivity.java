@@ -5,13 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
     ListView lvFoodList;
     FoodAdapter foodAdapter;
     ArrayList<Food> foodList;
+    ArrayList<Food> foodListSearch;
     EditText editText_Search;
+    Button btnSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,17 +48,24 @@ public class MainActivity extends AppCompatActivity {
         lvFoodList.setAdapter(foodAdapter);
 
         editText_Search = findViewById(R.id.editText_Search);
-        editText_Search.setOnKeyListener(new View.OnKeyListener() {
+        btnSearch = findViewById(R.id.btnSearch);
+        foodListSearch = new ArrayList<>();
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                if((keyEvent.getAction() == KeyEvent.ACTION_DOWN) && (i == KeyEvent.KEYCODE_ENTER)) {
-                    String value = editText_Search.getText().toString();
-                    Toast.makeText(MainActivity.this, value, Toast.LENGTH_SHORT).show();
-                    return true;
+            public void onClick(View view) {
+                foodListSearch.clear();
+                for(Food food: foodList) {
+                    String st = editText_Search.getText().toString();
+                    if(food.getName().contains(st)){
+                        foodListSearch.add(food);
+                    }
                 }
-                return false;
+                lvFoodList.setAdapter(new FoodAdapter(MainActivity.this, R.layout.food_layout, foodListSearch));
             }
         });
+
+
 
     }
 }
