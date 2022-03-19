@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/imgPicture"
+        android:id="@+id/imgPicture2"
         android:layout_width="99dp"
         android:layout_height="102dp"
         android:layout_marginTop="16dp"
@@ -23,7 +23,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/txtName"
+        android:id="@+id/txtName2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -36,8 +36,8 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imgPicture"
-        app:layout_constraintTop_toTopOf="@+id/imgPicture" />
+        app:layout_constraintStart_toEndOf="@+id/imgPicture2"
+        app:layout_constraintTop_toTopOf="@+id/imgPicture2" />
 
     <TextView
         android:id="@+id/textView3"
@@ -53,8 +53,8 @@
         android:textColor="@color/black"
         android:textSize="14sp"
         android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="@+id/txtName"
-        app:layout_constraintTop_toBottomOf="@+id/txtName" />
+        app:layout_constraintStart_toStartOf="@+id/txtName2"
+        app:layout_constraintTop_toBottomOf="@+id/txtName2" />
 
     <!--    <Button-->
     <!--        android:id="@+id/btnBuy"-->
@@ -70,16 +70,16 @@
     <!--        app:layout_constraintStart_toEndOf="@+id/imgPicture" />-->
 
     <TextView
-        android:id="@+id/txtPrice"
+        android:id="@+id/txtPrice2"
         android:layout_width="112dp"
         android:layout_height="21dp"
         android:text="Price"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/imgPicture"
-        app:layout_constraintEnd_toEndOf="@+id/txtName"
+        app:layout_constraintBottom_toBottomOf="@+id/imgPicture2"
+        app:layout_constraintEnd_toEndOf="@+id/txtName2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txtName"
-        app:layout_constraintTop_toBottomOf="@+id/txtName"
+        app:layout_constraintStart_toStartOf="@+id/txtName2"
+        app:layout_constraintTop_toBottomOf="@+id/txtName2"
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
@@ -90,7 +90,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.948"
-        app:layout_constraintStart_toStartOf="@+id/imgPicture"
+        app:layout_constraintStart_toStartOf="@+id/imgPicture2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.532"
         app:srcCompat="@drawable/plus_button" />

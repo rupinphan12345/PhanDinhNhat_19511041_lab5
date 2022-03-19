@@ -1,15 +1,17 @@
 package com.example.phandinhnhat_lab5;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class FoodAdapter extends BaseAdapter {
@@ -43,15 +45,30 @@ public class FoodAdapter extends BaseAdapter {
     public View getView(int i, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView = inflater.inflate(layout, null);
-        TextView txtName = (TextView) convertView.findViewById(R.id.txtName);
-        TextView txtPrice = (TextView) convertView.findViewById(R.id.txtPrice);
+        TextView txtName = (TextView) convertView.findViewById(R.id.txtName2);
+        TextView txtPrice = (TextView) convertView.findViewById(R.id.txtPrice2);
         ImageButton btnBuy =   (ImageButton) convertView.findViewById(R.id.btnBuy);
-        ImageView imgFood = (ImageView) convertView.findViewById(R.id.imgPicture);
+        ImageView imgFood = (ImageView) convertView.findViewById(R.id.imgPicture2);
 
         Food food = foodList.get(i);
         txtName.setText(food.getName());
         txtPrice.setText("$" + String.valueOf(food.getPrice()));
         imgFood.setImageResource(food.getImg());
+
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, FoodDetailActivity.class);
+//                intent.putExtra("foodKey", (Serializable) food);
+                intent.putExtra("img", food.getImg());
+                intent.putExtra("name", food.getName());
+                intent.putExtra("price", food.getPrice());
+
+                context.startActivity(intent);
+
+            }
+        });
 
         return convertView;
 

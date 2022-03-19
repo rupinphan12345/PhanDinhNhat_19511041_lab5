@@ -3,6 +3,7 @@ package com.example.phandinhnhat_lab5;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -10,6 +11,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -64,8 +66,6 @@ public class MainActivity extends AppCompatActivity {
                 lvFoodList.setAdapter(new FoodAdapter(MainActivity.this, R.layout.food_layout, foodListSearch));
             }
         });
-
-
 
     }
 }
